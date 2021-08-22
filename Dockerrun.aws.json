@@ -1,0 +1,11 @@
+{
+	"AWSEBDockerrunVersion":  "1",
+	"Image": {
+		"Name": "shylabo/golang-gin-poc"
+	},
+	"Ports": [
+		{
+			"ContainerPort": "5000"
+		}
+	]
+}

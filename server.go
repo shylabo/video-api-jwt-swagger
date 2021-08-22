@@ -9,7 +9,6 @@ import (
 	"github.com/shylabo/golang-gin-poc/controller"
 	"github.com/shylabo/golang-gin-poc/middlewares"
 	"github.com/shylabo/golang-gin-poc/service"
-	gindump "github.com/tpkeeper/gin-dump"
 )
 
 var (
@@ -26,7 +25,7 @@ func main() {
 	setupLogOutput()
 	server := gin.New()
 
-	server.Use(gin.Recovery(), middlewares.Logger(), gindump.Dump())
+	server.Use(gin.Recovery(), middlewares.Logger())
 
 	server.Static("/css", "./templates/css")
 
