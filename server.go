@@ -26,13 +26,13 @@ func main() {
 	setupLogOutput()
 	server := gin.New()
 
+	server.Use(gin.Recovery(), middlewares.Logger(), gindump.Dump())
+
 	server.Static("/css", "./templates/css")
 
 	server.LoadHTMLGlob("templates/*.html")
 
-	server.Use(gin.Recovery(), middlewares.Logger(), middlewares.BasicAuth(), gindump.Dump())
-
-	apiRoutes := server.Group("/api")
+	apiRoutes := server.Group("/api", middlewares.BasicAuth())
 	{
 		apiRoutes.GET("/videos", func(ctx *gin.Context) {
 			ctx.JSON(200, VideoController.FindAll())
@@ -48,10 +48,18 @@ func main() {
 		})
 	}
 
+	// The "/view" endpoints are public (no Authorization required)
 	viewRoutes := server.Group("/view")
 	{
 		viewRoutes.GET("/videos", VideoController.ShowAll)
 	}
 
-	server.Run(":8080")
+	// We can setup this env variable from the EB console
+	port := os.Getenv("PORT")
+	// Elastic Beanstalk forwards requests to port 5000
+	if port == "" {
+		port = "5000"
+	}
+
+	server.Run(":" + port)
 }
