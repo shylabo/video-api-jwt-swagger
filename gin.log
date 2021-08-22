@@ -5,12 +5,17 @@
 [GIN-debug] GET    /css/*filepath            --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
 [GIN-debug] HEAD   /css/*filepath            --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
 [GIN-debug] Loaded HTML Templates (4): 
-	- index.html
 	- 
 	- footer.html
 	- header.html
+	- index.html
 
 [GIN-debug] GET    /api/videos               --> main.main.func1 (4 handlers)
 [GIN-debug] POST   /api/videos               --> main.main.func2 (4 handlers)
 [GIN-debug] GET    /view/videos              --> github.com/shylabo/golang-gin-poc/controller.VideoController.ShowAll-fm (3 handlers)
 [GIN-debug] Listening and serving HTTP on :5000
+::1 - [22 Aug 21 20:28 JST] GET /api/videos 200 8.065109ms 
+::1 - [22 Aug 21 20:28 JST] POST /api/videos 200 3.552297ms 
+::1 - [22 Aug 21 20:29 JST] POST /api/videos 200 137.474µs 
+::1 - [22 Aug 21 20:29 JST] POST /api/videos 200 158.422µs 
+::1 - [22 Aug 21 20:29 JST] GET /api/videos 200 52.541µs 
