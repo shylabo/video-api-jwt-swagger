@@ -2,8 +2,31 @@
  - using env:	export GIN_MODE=release
  - using code:	gin.SetMode(gin.ReleaseMode)
 
-[GIN-debug] GET    /videos                   --> main.main.func1 (5 handlers)
-[GIN-debug] POST   /videos                   --> main.main.func2 (5 handlers)
+[GIN-debug] GET    /css/*filepath            --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (1 handlers)
+[GIN-debug] HEAD   /css/*filepath            --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (1 handlers)
+[GIN-debug] Loaded HTML Templates (4): 
+	- 
+	- footer.html
+	- header.html
+	- index.html
+
+[GIN-debug] GET    /api/videos               --> main.main.func1 (5 handlers)
+[GIN-debug] POST   /api/videos               --> main.main.func2 (5 handlers)
+[GIN-debug] GET    /view/videos              --> github.com/shylabo/golang-gin-poc/controller.VideoController.ShowAll-fm (5 handlers)
 [GIN-debug] Listening and serving HTTP on :8080
-::1 - [22 Aug 21 00:38 JST] POST /videos 400 1.260378ms 
-::1 - [22 Aug 21 00:39 JST] POST /videos 200 365.485µs 
+::1 - [22 Aug 21 13:43 JST] GET /view/videos 200 4.867364ms 
+::1 - [22 Aug 21 13:44 JST] POST /api/videos 200 478.642µs 
+::1 - [22 Aug 21 13:44 JST] POST /api/videos 200 1.98652ms 
+::1 - [22 Aug 21 13:44 JST] POST /api/videos 200 306.981µs 
+::1 - [22 Aug 21 13:44 JST] POST /api/videos 200 324.942µs 
+::1 - [22 Aug 21 13:44 JST] POST /api/videos 200 326.093µs 
+::1 - [22 Aug 21 13:44 JST] POST /api/videos 200 178.673µs 
+::1 - [22 Aug 21 13:44 JST] POST /api/videos 200 351.587µs 
+::1 - [22 Aug 21 13:44 JST] POST /api/videos 200 340.143µs 
+::1 - [22 Aug 21 13:44 JST] POST /api/videos 200 222.373µs 
+::1 - [22 Aug 21 13:44 JST] GET /view/videos 200 6.69142ms 
+::1 - [22 Aug 21 13:44 JST] GET /view/videos 200 3.8952ms 
+::1 - [22 Aug 21 13:48 JST] GET /view/videos 200 9.177832ms 
+::1 - [22 Aug 21 13:49 JST] GET /view/videos 200 1.920463ms 
+::1 - [22 Aug 21 13:50 JST] GET /favicon.ico 404 183.315µs 
+::1 - [22 Aug 21 13:50 JST] GET /view/videos 200 2.960651ms 
