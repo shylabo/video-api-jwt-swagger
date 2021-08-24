@@ -8,13 +8,15 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/shylabo/golang-gin-poc/controller"
 	"github.com/shylabo/golang-gin-poc/middlewares"
+	"github.com/shylabo/golang-gin-poc/repository"
 	"github.com/shylabo/golang-gin-poc/service"
 )
 
 var (
-	videoService service.VideoService = service.New()
-	loginService service.LoginService = service.NewLoginService()
-	jwtService   service.JWTService   = service.NewJWTService()
+	videoRepository repository.VideoRepository = repository.NewVideoRepository()
+	videoService    service.VideoService       = service.New(videoRepository)
+	loginService    service.LoginService       = service.NewLoginService()
+	jwtService      service.JWTService         = service.NewJWTService()
 
 	VideoController controller.VideoController = controller.New(videoService)
 	loginController controller.LoginController = controller.NewLoginController(loginService, jwtService)
@@ -26,6 +28,8 @@ func setupLogOutput() {
 }
 
 func main() {
+	defer videoRepository.CloseDB()
+
 	setupLogOutput()
 	server := gin.New()
 
@@ -59,7 +63,25 @@ func main() {
 			if err != nil {
 				ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			} else {
-				ctx.JSON(http.StatusOK, gin.H{"message": "Video Input is Valid!"})
+				ctx.JSON(http.StatusOK, gin.H{"message": "Success!"})
+			}
+		})
+
+		apiRoutes.PUT("/videos/:id", func(ctx *gin.Context) {
+			err := VideoController.Update(ctx)
+			if err != nil {
+				ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			} else {
+				ctx.JSON(http.StatusOK, gin.H{"message": "Success!"})
+			}
+		})
+
+		apiRoutes.DELETE("/videos/:id", func(ctx *gin.Context) {
+			err := VideoController.Delete(ctx)
+			if err != nil {
+				ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			} else {
+				ctx.JSON(http.StatusOK, gin.H{"message": "Success!"})
 			}
 		})
 	}
