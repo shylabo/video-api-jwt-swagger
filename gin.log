@@ -5,42 +5,28 @@
 [GIN-debug] GET    /css/*filepath            --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
 [GIN-debug] HEAD   /css/*filepath            --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
 [GIN-debug] Loaded HTML Templates (4): 
+	- index.html
 	- 
 	- footer.html
 	- header.html
-	- index.html
 
-[GIN-debug] POST   /login                    --> main.main.func1 (3 handlers)
-[GIN-debug] GET    /api/videos               --> main.main.func2 (4 handlers)
-[GIN-debug] POST   /api/videos               --> main.main.func3 (4 handlers)
-[GIN-debug] PUT    /api/videos/:id           --> main.main.func4 (4 handlers)
-[GIN-debug] DELETE /api/videos/:id           --> main.main.func5 (4 handlers)
-[GIN-debug] GET    /view/videos              --> github.com/shylabo/golang-gin-poc/controller.VideoController.ShowAll-fm (3 handlers)
+[GIN-debug] POST   /api/v1/auth/token        --> github.com/shylabo/golang-gin-poc/api.(*VideoApi).Authenticate-fm (3 handlers)
+[GIN-debug] GET    /api/v1/videos            --> github.com/shylabo/golang-gin-poc/api.(*VideoApi).GetVideos-fm (3 handlers)
+[GIN-debug] POST   /api/v1/videos            --> github.com/shylabo/golang-gin-poc/api.(*VideoApi).CreateVideo-fm (3 handlers)
+[GIN-debug] PUT    /api/v1/videos/:id        --> github.com/shylabo/golang-gin-poc/api.(*VideoApi).UpdateVideo-fm (3 handlers)
+[GIN-debug] DELETE /api/v1/videos/:id        --> github.com/shylabo/golang-gin-poc/api.(*VideoApi).DeleteVideo-fm (3 handlers)
+[GIN-debug] GET    /api/v1/view/videos       --> github.com/shylabo/golang-gin-poc/controller.VideoController.ShowAll-fm (3 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
 [GIN-debug] Listening and serving HTTP on :5000
-::1 - [25 Aug 21 00:06 JST] POST /api/videos 400 3.464758ms 
-::1 - [25 Aug 21 00:06 JST] POST /login 200 264.527µs 
-::1 - [25 Aug 21 00:07 JST] POST /login 200 170.804µs 
-::1 - [25 Aug 21 00:07 JST] POST /login 200 195.051µs 
-::1 - [25 Aug 21 00:07 JST] POST /api/videos 400 162.975µs 
-::1 - [25 Aug 21 00:13 JST] POST /api/videos 400 268.933µs 
-::1 - [25 Aug 21 00:14 JST] POST /api/videos 400 280.605µs 
-::1 - [25 Aug 21 00:14 JST] POST /api/videos 400 161.02µs 
-::1 - [25 Aug 21 00:15 JST] POST /api/videos 200 9.889762ms 
-::1 - [25 Aug 21 00:15 JST] GET /api/videos 200 823.902µs 
-::1 - [25 Aug 21 00:23 JST] POST /api/videos 200 4.662695ms 
-::1 - [25 Aug 21 00:24 JST] GET /api/videos 200 2.043141ms 
-::1 - [25 Aug 21 00:24 JST] GET /api/videos 200 1.601932ms 
-::1 - [25 Aug 21 00:24 JST] POST /login 200 145.505µs 
-::1 - [25 Aug 21 00:24 JST] POST /api/videos 200 57.824295ms 
-::1 - [25 Aug 21 00:24 JST] GET /api/videos 200 651.913µs 
-::1 - [25 Aug 21 00:24 JST] GET /api/videos 200 857.211µs 
-::1 - [25 Aug 21 00:25 JST] POST /login 200 611.452µs 
-::1 - [25 Aug 21 00:25 JST] POST /api/videos 200 2.387689ms 
-::1 - [25 Aug 21 00:26 JST] POST /api/videos 200 9.334648ms 
-::1 - [25 Aug 21 00:26 JST] GET /api/videos 200 1.324731ms 
-::1 - [25 Aug 21 00:27 JST] PUT /api/videos 404 269ns 
-::1 - [25 Aug 21 00:27 JST] PUT /api/videos:1 404 288ns 
-::1 - [25 Aug 21 00:28 JST] PUT /api/videos:id=1 404 322ns 
-::1 - [25 Aug 21 00:28 JST] PUT /api/videos/1 200 7.415906ms 
-::1 - [25 Aug 21 00:29 JST] PUT /api/videos/2 200 6.421559ms 
-::1 - [25 Aug 21 00:29 JST] DELETE /api/videos/2 200 9.781052ms 
+::1 - [27 Aug 21 01:13 JST] GET /swagger/index.html 200 705.272µs 
+::1 - [27 Aug 21 01:13 JST] GET /swagger/swagger-ui.css 200 268.997µs 
+::1 - [27 Aug 21 01:13 JST] GET /swagger/swagger-ui-bundle.js 200 476.888394ms 
+::1 - [27 Aug 21 01:13 JST] GET /swagger/swagger-ui-standalone-preset.js 200 473.481615ms 
+::1 - [27 Aug 21 01:13 JST] GET /swagger/doc.json 200 520.184µs 
+::1 - [27 Aug 21 01:13 JST] GET /swagger/favicon-32x32.png 200 8.619992ms 
+::1 - [27 Aug 21 01:13 JST] GET /api/v1/videos 200 2.981213ms 
+::1 - [27 Aug 21 01:16 JST] GET /api/v1/videos 200 725.311µs 
+::1 - [27 Aug 21 01:17 JST] POST /api/v1/auth/token 200 416.31µs 
+::1 - [27 Aug 21 01:18 JST] PUT /api/v1/videos 404 304ns 
+::1 - [27 Aug 21 01:18 JST] PUT /api/v1/videos/1 200 9.766348ms 
+::1 - [27 Aug 21 01:18 JST] GET /api/v1/videos 200 1.361446ms 

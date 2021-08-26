@@ -11,7 +11,7 @@ type loginService struct {
 
 func NewLoginService() LoginService {
 	return &loginService{
-		authorizedUsername: "user",
+		authorizedUsername: "username",
 		authorizedPassword: "password",
 	}
 }

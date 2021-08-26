@@ -47,9 +47,16 @@ func (c *controller) Save(ctx *gin.Context) error {
 	if err != nil {
 		return err
 	}
-	c.service.Save(video)
+	err = c.service.Save(video)
+
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+	} else {
+		ctx.JSON(http.StatusOK, gin.H{"message": "Success!"})
+	}
 	return nil
 }
+
 func (c *controller) Update(ctx *gin.Context) error {
 
 	var video entity.Video
@@ -71,6 +78,7 @@ func (c *controller) Update(ctx *gin.Context) error {
 	c.service.Update(video)
 	return nil
 }
+
 func (c *controller) Delete(ctx *gin.Context) error {
 	var video entity.Video
 	id, err := strconv.ParseUint(ctx.Param("id"), 0, 0)
@@ -89,4 +97,5 @@ func (c *controller) ShowAll(ctx *gin.Context) {
 		"videos": videos,
 	}
 	ctx.HTML(http.StatusOK, "index.html", data)
+	ctx.JSON(200, videos)
 }
