@@ -12,7 +12,7 @@ $ go mod init github.com/shylabo/golang-gin-poc
 $ go get github.com/gin-gonic/gin
 ```
 
-## Docker
+## docker
 
 ```
 docker build --tag shylabo/golang-gin-poc .
